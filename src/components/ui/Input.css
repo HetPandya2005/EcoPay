@@ -1,0 +1,119 @@
+/* Input.css — Input component styles */
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  width: 100%;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  transition: all var(--duration-base) var(--ease-smooth);
+  height: 52px;
+}
+
+.input-wrapper:hover {
+  border-color: var(--glass-border-hover);
+  background: var(--glass-bg-hover);
+}
+
+.input-group--focused .input-wrapper {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-subtle);
+}
+
+.input-group--error .input-wrapper {
+  border-color: var(--danger);
+  box-shadow: 0 0 0 3px var(--danger-subtle);
+}
+
+.input-field {
+  flex: 1;
+  height: 100%;
+  padding: var(--space-4) var(--space-4);
+  padding-top: var(--space-5);
+  font-size: var(--text-base);
+  color: var(--text-primary);
+  background: transparent;
+  border: none;
+  outline: none;
+  width: 100%;
+}
+
+.input-icon {
+  position: absolute;
+  left: var(--space-4);
+  color: var(--text-muted);
+  transition: color var(--duration-base) var(--ease-smooth);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.input-icon + .input-field {
+  padding-left: calc(var(--space-4) + 26px);
+}
+
+.input-icon + .input-field + .input-label {
+  left: calc(var(--space-4) + 26px);
+}
+
+.input-group--focused .input-icon {
+  color: var(--primary);
+}
+
+/* ── Floating Label ── */
+.input-label {
+  position: absolute;
+  left: var(--space-4);
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: var(--text-base);
+  color: var(--text-muted);
+  pointer-events: none;
+  transition: all var(--duration-base) var(--ease-smooth);
+  transform-origin: left;
+}
+
+.input-field:focus + .input-label,
+.input-field:not(:placeholder-shown) + .input-label {
+  top: 10px;
+  transform: translateY(0);
+  font-size: var(--text-xs);
+  color: var(--primary-light);
+}
+
+.input-group--error .input-field:focus + .input-label,
+.input-group--error .input-field:not(:placeholder-shown) + .input-label {
+  color: var(--danger-light);
+}
+
+/* ── Password Toggle ── */
+.input-toggle {
+  position: absolute;
+  right: var(--space-3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-1);
+  color: var(--text-muted);
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: color var(--duration-fast) var(--ease-smooth);
+}
+
+.input-toggle:hover {
+  color: var(--text-secondary);
+}
+
+/* ── Error Message ── */
+.input-error {
+  font-size: var(--text-xs);
+  color: var(--danger-light);
+  padding-left: var(--space-1);
+}

@@ -1,0 +1,27 @@
+/* PublicLayout.css */
+
+.public-layout {
+  min-height: 100vh;
+  position: relative;
+}
+
+.public-layout__bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(124, 108, 240, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(0, 210, 198, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, rgba(244, 196, 48, 0.04) 0%, transparent 50%);
+  background-color: var(--bg-primary);
+  animation: meshMove 20s ease-in-out infinite;
+}
+
+.public-layout__content {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+}

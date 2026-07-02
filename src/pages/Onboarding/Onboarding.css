@@ -1,0 +1,631 @@
+/* =========================================================
+   Onboarding.css — Full-screen onboarding carousel
+   Premium immersive experience | 3 slides | Dark theme
+   ========================================================= */
+
+/* ─── Page ────────────────────────────────────────────────── */
+
+.onboarding {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: var(--space-8);
+}
+
+/* Animated mesh background */
+.onboarding__bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 30% 20%, rgba(124, 108, 240, 0.1) 0%, transparent 60%),
+    radial-gradient(ellipse at 70% 80%, rgba(0, 210, 198, 0.07) 0%, transparent 60%),
+    radial-gradient(ellipse at 50% 50%, rgba(244, 196, 48, 0.03) 0%, transparent 60%);
+  background-size: 200% 200%;
+  animation: gradientShift 14s ease-in-out infinite;
+  z-index: 0;
+}
+
+/* ─── Skip Button ─────────────────────────────────────────── */
+
+.onboarding__skip {
+  position: absolute;
+  top: var(--space-6);
+  right: var(--space-8);
+  z-index: 10;
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color var(--duration-base) var(--ease-smooth);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-full);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  font-family: inherit;
+  font-weight: var(--weight-medium);
+}
+
+.onboarding__skip:hover {
+  color: var(--text-primary);
+  background: var(--glass-bg-hover);
+  border-color: var(--glass-border-hover);
+}
+
+/* ─── Slide Container ─────────────────────────────────────── */
+
+.onboarding__slide-container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* ─── Slide Content ───────────────────────────────────────── */
+
+.onboarding-slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+/* Visual area */
+.onboarding-slide__visual {
+  width: 320px;
+  height: 260px;
+  position: relative;
+  margin-bottom: var(--space-10);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Title */
+.onboarding-slide__title {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-bold);
+  color: var(--text-primary);
+  margin-bottom: var(--space-4);
+  letter-spacing: -0.02em;
+  line-height: var(--leading-tight);
+}
+
+.onboarding-slide__title-gradient {
+  background: var(--text-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Description */
+.onboarding-slide__description {
+  font-size: var(--text-lg);
+  color: var(--text-secondary);
+  max-width: 520px;
+  line-height: var(--leading-relaxed);
+  margin-bottom: var(--space-12);
+}
+
+/* ─── Progress Dots ───────────────────────────────────────── */
+
+.onboarding__dots {
+  display: flex;
+  gap: var(--space-3);
+  margin-bottom: var(--space-10);
+  z-index: 2;
+}
+
+.onboarding__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--glass-bg-active);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all var(--duration-base) var(--ease-smooth);
+}
+
+.onboarding__dot--active {
+  background: var(--primary);
+  box-shadow: 0 0 12px var(--primary-glow);
+  transform: scale(1.3);
+}
+
+.onboarding__dot:hover:not(.onboarding__dot--active) {
+  background: var(--glass-border-hover);
+  transform: scale(1.1);
+}
+
+/* ─── Navigation ──────────────────────────────────────────── */
+
+.onboarding__nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  z-index: 2;
+}
+
+/* ─── Visual: Slide 1 — Coins ─────────────────────────────── */
+
+.visual-coins {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.visual-coins__center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.visual-coins__icon-ring {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: var(--gradient-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-glow-primary);
+  position: relative;
+}
+
+.visual-coins__icon-ring svg {
+  color: white;
+}
+
+/* Orbiting coins */
+.visual-coins__orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  margin-top: -100px;
+  margin-left: -100px;
+  animation: spin 12s linear infinite;
+}
+
+.visual-coins__coin {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: var(--weight-bold);
+  animation: spin 12s linear infinite reverse;
+}
+
+.visual-coins__coin:nth-child(1) {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--gradient-gold);
+  color: var(--text-inverse);
+  box-shadow: var(--shadow-glow-gold);
+}
+
+.visual-coins__coin:nth-child(2) {
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  background: var(--gradient-primary);
+  color: white;
+  box-shadow: var(--shadow-glow-primary);
+}
+
+.visual-coins__coin:nth-child(3) {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, var(--secondary), var(--secondary-light));
+  color: var(--text-inverse);
+  box-shadow: var(--shadow-glow-secondary);
+}
+
+.visual-coins__coin:nth-child(4) {
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  background: var(--gradient-gold);
+  color: var(--text-inverse);
+  box-shadow: var(--shadow-glow-gold);
+}
+
+.visual-coins__counter {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+  color: var(--accent-gold);
+  margin-top: var(--space-3);
+}
+
+/* ─── Visual: Slide 2 — Request Card ─────────────────────── */
+
+.visual-request {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.visual-request__card {
+  width: 240px;
+  padding: var(--space-6);
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--glass-shadow-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.visual-request__card-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.visual-request__card-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  background: var(--gradient-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.visual-request__card-icon svg {
+  color: white;
+}
+
+.visual-request__card-title {
+  font-family: var(--font-display);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-base);
+  color: var(--text-primary);
+}
+
+.visual-request__card-tier {
+  font-size: var(--text-xs);
+  color: var(--accent-gold);
+  font-weight: var(--weight-medium);
+}
+
+/* Progress bar inside request card */
+.visual-request__progress {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.visual-request__progress-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+}
+
+.visual-request__progress-bar {
+  height: 6px;
+  background: var(--glass-bg-active);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.visual-request__progress-fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  background: var(--gradient-primary);
+}
+
+.visual-request__amount {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-bold);
+  color: var(--text-primary);
+  text-align: center;
+}
+
+.visual-request__amount-symbol {
+  font-size: var(--text-lg);
+  color: var(--primary-light);
+}
+
+/* Lock badge */
+.visual-request__lock {
+  position: absolute;
+  top: 10px;
+  right: 50px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.visual-request__lock svg {
+  color: var(--success);
+}
+
+/* ─── Visual: Slide 3 — Redeem ────────────────────────────── */
+
+.visual-redeem {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.visual-redeem__brands {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.visual-redeem__brand {
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius-lg);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  transition: all var(--duration-base) var(--ease-smooth);
+}
+
+.visual-redeem__brand-icon {
+  font-size: 24px;
+}
+
+.visual-redeem__brand-name {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  font-weight: var(--weight-medium);
+}
+
+.visual-redeem__counter {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--space-1);
+}
+
+.visual-redeem__counter-value {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+  color: var(--secondary);
+}
+
+.visual-redeem__counter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.visual-redeem__reward {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  background: var(--success-subtle);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  border-radius: var(--radius-full);
+}
+
+.visual-redeem__reward-icon svg {
+  color: var(--success);
+}
+
+.visual-redeem__reward-text {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--success-light);
+}
+
+/* ─── RESPONSIVE: Tablet ──────────────────────────────────── */
+
+@media (max-width: 1023px) {
+  .onboarding {
+    padding: var(--space-6);
+  }
+
+  .onboarding-slide__visual {
+    width: 260px;
+    height: 220px;
+  }
+
+  .onboarding-slide__title {
+    font-size: var(--text-2xl);
+  }
+
+  .onboarding-slide__description {
+    font-size: var(--text-base);
+    margin-bottom: var(--space-8);
+  }
+
+  .visual-coins__orbit {
+    width: 170px;
+    height: 170px;
+    margin-top: -85px;
+    margin-left: -85px;
+  }
+
+  .visual-coins__icon-ring {
+    width: 80px;
+    height: 80px;
+  }
+
+  .visual-coins__coin {
+    width: 30px;
+    height: 30px;
+    font-size: 13px;
+  }
+}
+
+/* ─── RESPONSIVE: Mobile ──────────────────────────────────── */
+
+@media (max-width: 639px) {
+  .onboarding {
+    padding: var(--space-4) var(--space-4) var(--space-6);
+    justify-content: flex-start;
+    padding-top: var(--space-16);
+  }
+
+  .onboarding__skip {
+    top: var(--space-4);
+    right: var(--space-4);
+  }
+
+  .onboarding-slide__visual {
+    width: 220px;
+    height: 180px;
+    margin-bottom: var(--space-8);
+  }
+
+  .onboarding-slide__title {
+    font-size: var(--text-xl);
+  }
+
+  .onboarding-slide__description {
+    font-size: var(--text-base);
+    margin-bottom: var(--space-6);
+  }
+
+  .onboarding__dots {
+    margin-bottom: var(--space-6);
+  }
+
+  .visual-coins__orbit {
+    width: 140px;
+    height: 140px;
+    margin-top: -70px;
+    margin-left: -70px;
+  }
+
+  .visual-coins__icon-ring {
+    width: 64px;
+    height: 64px;
+  }
+
+  .visual-coins__coin {
+    width: 26px;
+    height: 26px;
+    font-size: 11px;
+  }
+
+  .visual-request__card {
+    width: 200px;
+    padding: var(--space-4);
+  }
+
+  .visual-redeem__brand {
+    width: 64px;
+    height: 64px;
+  }
+
+  .visual-redeem__brand-icon {
+    font-size: 18px;
+  }
+
+  .onboarding__nav {
+    flex-direction: column;
+    width: 100%;
+    gap: var(--space-3);
+  }
+
+  .onboarding__nav .btn {
+    width: 100%;
+  }
+}
+
+/* ─── Floating Particles (reused from Login) ──────────────── */
+
+.onboarding .login-particles {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.onboarding .login-particle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0;
+  animation: particleFloat linear infinite;
+}
+
+@keyframes particleFloat {
+  0% {
+    opacity: 0;
+    transform: translateY(100%) scale(0);
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100vh) scale(1);
+  }
+}
+
+/* ─── Final CTA Glow ─────────────────────────────────────── */
+
+.onboarding__cta-final {
+  animation: ctaGlow 2s ease-in-out infinite;
+}
+
+@keyframes ctaGlow {
+  0%, 100% {
+    box-shadow: var(--shadow-md), 0 0 0 0 rgba(124, 108, 240, 0);
+  }
+  50% {
+    box-shadow: var(--shadow-lg), var(--shadow-glow-primary);
+  }
+}

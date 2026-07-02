@@ -1,0 +1,89 @@
+/* Card.css — Card component styles */
+
+.card {
+  border-radius: var(--radius-xl);
+  transition: all var(--duration-base) var(--ease-smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Padding ── */
+.card--pad-none { padding: 0; }
+.card--pad-sm { padding: var(--space-3); }
+.card--pad-md { padding: var(--space-5); }
+.card--pad-lg { padding: var(--space-8); }
+
+/* ── Variants ── */
+.card--glass {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+.card--gradient {
+  background: var(--gradient-card);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+.card--solid {
+  background: var(--bg-elevated);
+  border: 1px solid var(--glass-border);
+}
+
+.card--outline {
+  background: transparent;
+  border: 1px solid var(--glass-border);
+}
+
+/* ── Hover ── */
+.card--hover:hover {
+  border-color: var(--glass-border-hover);
+  box-shadow: var(--glass-shadow-lg);
+  transform: translateY(-2px);
+}
+
+.card--hover.card--glass:hover {
+  background: var(--glass-bg-hover);
+}
+
+.card--hover.card--gradient:hover {
+  background: var(--gradient-card-hover);
+}
+
+/* ── Glow ── */
+.card--glow-primary {
+  box-shadow: var(--glass-shadow), 0 0 0 1px rgba(124, 108, 240, 0.15);
+}
+.card--glow-primary:hover {
+  box-shadow: var(--glass-shadow-lg), var(--shadow-glow-primary);
+}
+
+.card--glow-secondary {
+  box-shadow: var(--glass-shadow), 0 0 0 1px rgba(0, 210, 198, 0.15);
+}
+.card--glow-secondary:hover {
+  box-shadow: var(--glass-shadow-lg), var(--shadow-glow-secondary);
+}
+
+.card--glow-gold {
+  box-shadow: var(--glass-shadow), 0 0 0 1px rgba(244, 196, 48, 0.15);
+}
+.card--glow-gold:hover {
+  box-shadow: var(--glass-shadow-lg), var(--shadow-glow-gold);
+}
+
+/* ── Clickable ── */
+.card--clickable {
+  cursor: pointer;
+}
+.card--clickable:active {
+  transform: translateY(0) scale(0.99);
+}
+
+@media (max-width: 639px) {
+  .card--pad-md { padding: var(--space-4); }
+  .card--pad-lg { padding: var(--space-5); }
+}

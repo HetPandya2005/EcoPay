@@ -1,0 +1,79 @@
+/* Badge.css — Badge component styles */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-family: var(--font-body);
+  font-weight: var(--weight-semibold);
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+}
+
+/* ── Sizes ── */
+.badge--sm {
+  padding: 2px var(--space-2);
+  font-size: var(--text-xs);
+}
+
+.badge--md {
+  padding: var(--space-1) var(--space-3);
+  font-size: var(--text-sm);
+}
+
+.badge--lg {
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--text-base);
+}
+
+/* ── Variants ── */
+.badge--default {
+  background: var(--glass-bg);
+  color: var(--text-secondary);
+  border: 1px solid var(--glass-border);
+}
+
+.badge--primary {
+  background: var(--primary-subtle);
+  color: var(--primary-light);
+  border: 1px solid rgba(124, 108, 240, 0.2);
+}
+
+.badge--success {
+  background: var(--success-subtle);
+  color: var(--success-light);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.badge--warning {
+  background: var(--warning-subtle);
+  color: var(--warning-light);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+.badge--danger {
+  background: var(--danger-subtle);
+  color: var(--danger-light);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.badge--gold {
+  background: rgba(244, 196, 48, 0.1);
+  color: var(--accent-gold-light);
+  border: 1px solid rgba(244, 196, 48, 0.2);
+}
+
+/* ── Dot ── */
+.badge__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+}
+
+/* ── Pulse ── */
+.badge--pulse .badge__dot {
+  animation: pulse 2s ease-in-out infinite;
+}

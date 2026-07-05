@@ -20,6 +20,7 @@ import KYC from './pages/KYC';
 import Signup from './pages/Signup';
 import Dashboard from './pages/Dashboard';
 import CreateRequest from './pages/CreateRequest';
+import BuyCreditsPage from './pages/BuyCredits';
 import { ROUTES } from './utils/constants';
 
 /* ─── Placeholder page wrappers (replaced in later phases) ── */
@@ -30,7 +31,7 @@ const Partners = () => <PagePlaceholder title="Partner Brands" description="Bran
 /* Onboarding is now a full page component imported from ./pages/Onboarding */
 /* KYC is now a full page component imported from ./pages/KYC */
 const Earn = () => <PagePlaceholder title="Earn Credits" description="Earn page — Phase 4" />;
-const BuyCredits = () => <PagePlaceholder title="Buy Credits" description="Buy Credits — Phase 5" />;
+/* BuyCredits is now a full page component imported from ./pages/BuyCredits */
 /* CreateRequest is now a full page component imported from ./pages/CreateRequest */
 const Profile = () => <PagePlaceholder title="Profile" description="Profile page — Phase 6" />;
 const SettingsPage = () => <PagePlaceholder title="Settings" description="Settings page — Phase 6" />;
@@ -62,7 +63,7 @@ export default function App() {
               }>
                 <Route path={ROUTES.DASHBOARD} element={<Dashboard />} />
                 <Route path={ROUTES.EARN} element={<Earn />} />
-                <Route path={ROUTES.BUY_CREDITS} element={<BuyCredits />} />
+                <Route path={ROUTES.BUY_CREDITS} element={<BuyCreditsPage />} />
                 <Route path={ROUTES.CREATE_REQUEST} element={<CreateRequest />} />
                 <Route path={ROUTES.PROFILE} element={<Profile />} />
                 <Route path={ROUTES.SETTINGS} element={<SettingsPage />} />

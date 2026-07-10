@@ -50,6 +50,7 @@ function economyReducer(state, action) {
       };
       return {
         ...state,
+        earnCredits: state.earnCredits - tier.earnCreditsRequired,
         activeRequest: request,
       };
     }

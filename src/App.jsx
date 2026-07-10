@@ -21,19 +21,22 @@ import Signup from './pages/Signup';
 import Dashboard from './pages/Dashboard';
 import CreateRequest from './pages/CreateRequest';
 import BuyCreditsPage from './pages/BuyCredits';
+import PartnerBrands from './pages/PartnerBrands';
+import EarnCredits from './pages/EarnCredits';
+import Profile from './pages/Profile';
 import { ROUTES } from './utils/constants';
 
 /* ─── Placeholder page wrappers (replaced in later phases) ── */
 const Landing = () => <PagePlaceholder title="EcoPay" description="Landing page — Phase 6" />;
 /* Login is now a full page component imported from ./pages/Login */
 /* Signup is now a full page component imported from ./pages/Signup */
-const Partners = () => <PagePlaceholder title="Partner Brands" description="Brands page — Phase 5" />;
+/* Partner Brands is now a full page component imported from ./pages/PartnerBrands */
 /* Onboarding is now a full page component imported from ./pages/Onboarding */
 /* KYC is now a full page component imported from ./pages/KYC */
-const Earn = () => <PagePlaceholder title="Earn Credits" description="Earn page — Phase 4" />;
+/* EarnCredits is now a full page component imported from ./pages/EarnCredits */
 /* BuyCredits is now a full page component imported from ./pages/BuyCredits */
 /* CreateRequest is now a full page component imported from ./pages/CreateRequest */
-const Profile = () => <PagePlaceholder title="Profile" description="Profile page — Phase 6" />;
+/* Profile is now a full page component imported from ./pages/Profile */
 const SettingsPage = () => <PagePlaceholder title="Settings" description="Settings page — Phase 6" />;
 
 export default function App() {
@@ -46,7 +49,7 @@ export default function App() {
               {/* ── Public Routes ── */}
               <Route element={<PublicLayout />}>
                 <Route path={ROUTES.LANDING} element={<Landing />} />
-                <Route path={ROUTES.PARTNERS} element={<Partners />} />
+                <Route path={ROUTES.PARTNERS} element={<PartnerBrands />} />
               </Route>
 
               {/* ── Auth Routes ── */}
@@ -62,9 +65,10 @@ export default function App() {
                 </ProtectedRoute>
               }>
                 <Route path={ROUTES.DASHBOARD} element={<Dashboard />} />
-                <Route path={ROUTES.EARN} element={<Earn />} />
+                <Route path={ROUTES.EARN} element={<EarnCredits />} />
                 <Route path={ROUTES.BUY_CREDITS} element={<BuyCreditsPage />} />
                 <Route path={ROUTES.CREATE_REQUEST} element={<CreateRequest />} />
+                <Route path={ROUTES.PARTNERS} element={<PartnerBrands />} />
                 <Route path={ROUTES.PROFILE} element={<Profile />} />
                 <Route path={ROUTES.SETTINGS} element={<SettingsPage />} />
               </Route>

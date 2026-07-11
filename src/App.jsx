@@ -24,6 +24,7 @@ import BuyCreditsPage from './pages/BuyCredits';
 import PartnerBrands from './pages/PartnerBrands';
 import EarnCredits from './pages/EarnCredits';
 import Profile from './pages/Profile';
+import Settings from './pages/Settings';
 import { ROUTES } from './utils/constants';
 
 /* ─── Placeholder page wrappers (replaced in later phases) ── */
@@ -37,7 +38,7 @@ const Landing = () => <PagePlaceholder title="EcoPay" description="Landing page 
 /* BuyCredits is now a full page component imported from ./pages/BuyCredits */
 /* CreateRequest is now a full page component imported from ./pages/CreateRequest */
 /* Profile is now a full page component imported from ./pages/Profile */
-const SettingsPage = () => <PagePlaceholder title="Settings" description="Settings page — Phase 6" />;
+/* Settings is now a full page component imported from ./pages/Settings */
 
 export default function App() {
   return (
@@ -70,7 +71,7 @@ export default function App() {
                 <Route path={ROUTES.CREATE_REQUEST} element={<CreateRequest />} />
                 <Route path={ROUTES.PARTNERS} element={<PartnerBrands />} />
                 <Route path={ROUTES.PROFILE} element={<Profile />} />
-                <Route path={ROUTES.SETTINGS} element={<SettingsPage />} />
+                <Route path={ROUTES.SETTINGS} element={<Settings />} />
               </Route>
 
               {/* ── Onboarding & KYC (auth required but no dashboard layout) ── */}

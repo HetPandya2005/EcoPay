@@ -25,10 +25,8 @@ import PartnerBrands from './pages/PartnerBrands';
 import EarnCredits from './pages/EarnCredits';
 import Profile from './pages/Profile';
 import Settings from './pages/Settings';
+import Landing from './pages/Landing';
 import { ROUTES } from './utils/constants';
-
-/* ─── Placeholder page wrappers (replaced in later phases) ── */
-const Landing = () => <PagePlaceholder title="EcoPay" description="Landing page — Phase 6" />;
 /* Login is now a full page component imported from ./pages/Login */
 /* Signup is now a full page component imported from ./pages/Signup */
 /* Partner Brands is now a full page component imported from ./pages/PartnerBrands */

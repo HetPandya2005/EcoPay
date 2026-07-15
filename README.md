@@ -43,6 +43,7 @@ Users can contribute:
 - ₹10
 - ₹20
 - ₹50
+- ₹100
 
 and receive Earn Credits that power the ecosystem.
 
@@ -71,6 +72,7 @@ Featured ecosystem partners include:
 - Puma
 - Amazon
 - Boat
+- more...
 
 ### 👤 Profile Management
 

@@ -3,7 +3,7 @@
    Features: Sidebar navigation, header, responsive
    ========================================================= */
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Outlet, NavLink, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -24,6 +24,16 @@ export default function DashboardLayout() {
   const { user, logout } = useAuth();
   const { contributorLevel, unreadNotifications } = useEconomy();
   const navigate = useNavigate();
+
+  /* Lock body scroll when mobile drawer is open */
+  useEffect(() => {
+    if (sidebarOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [sidebarOpen]);
 
   const handleLogout = () => {
     logout();
